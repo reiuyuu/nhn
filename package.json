@@ -10,7 +10,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "cheerio": "1.0.0-rc.12",
     "firebase": "^9.20.0",
     "ms": "^2.1.3",
     "next": "13.2.4",

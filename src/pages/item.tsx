@@ -9,8 +9,8 @@ import Layout from '@/components/layout'
 import NotFound from '@/components/not-found'
 import { fetchItem } from '@/lib/api'
 import { useCommentTree } from '@/lib/hooks'
+import { getTextFromHTML } from '@/lib/utils'
 import { Item } from '@/types/item'
-import cheerio from 'cheerio'
 import { GetServerSideProps } from 'next'
 
 interface ItemPageProps {
@@ -44,9 +44,8 @@ export default function ItemPage({ item }: ItemPageProps) {
     return <NotFound>No such item.</NotFound>
   }
 
-  // TODO: Optimize initial JS load caused by cheerio library usage
   const title =
-    item.type === 'comment' ? cheerio.load(item.text).text() : item.title
+    item.type === 'comment' ? getTextFromHTML(item.text) : item.title
 
   return (
     <Layout title={title} className='px-4'>
