@@ -2,6 +2,7 @@ import { fetchCommentContext, fetchCommentTree } from '@/lib/api'
 import { CommentItem, Item } from '@/types/item'
 import { useEffect, useState } from 'react'
 
+// A hook that returns a comment tree for a given item.
 export const useCommentTree = (item: Item | null): CommentItem[] => {
   const [commentTree, setCommentTree] = useState<CommentItem[]>([])
 
@@ -16,6 +17,7 @@ export const useCommentTree = (item: Item | null): CommentItem[] => {
   return commentTree
 }
 
+// A hook that returns the context information for a given comment.
 export const useCommentContext = (comment: CommentItem): [number, string] => {
   const [context, setContext] = useState<[number, string]>([0, ''])
 

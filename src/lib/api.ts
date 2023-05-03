@@ -12,6 +12,7 @@ const app = initializeApp(firebaseConfig)
 
 const db = getDatabase(app)
 
+// Fetch a single item (story, comment, job, etc.) based on its ID
 export const fetchItem = async (id: number): Promise<Item | null> => {
   const itemRef = ref(db, `/v0/item/${id}`)
   const itemSnap = await get(itemRef)
@@ -19,6 +20,7 @@ export const fetchItem = async (id: number): Promise<Item | null> => {
   return itemSnap.exists() ? itemSnap.val() : null
 }
 
+// Fetch a single user based on its ID
 export const fetchUser = async (id: string): Promise<User | null> => {
   const userRef = ref(db, `/v0/user/${id}`)
   const userSnap = await get(userRef)
@@ -26,6 +28,7 @@ export const fetchUser = async (id: string): Promise<User | null> => {
   return userSnap.exists() ? userSnap.val() : null
 }
 
+// Fetch a list of stories based on the endpoint
 export const fetchStories = async (
   storiesEP: StoriesEP,
   page = 1,
@@ -47,6 +50,7 @@ export const fetchStories = async (
     : []
 }
 
+// Fetch a comment and all its child comments (in a nested tree structure)
 export const fetchCommentTree = async (
   ids: number[],
 ): Promise<CommentItem[]> => {
@@ -66,6 +70,7 @@ export const fetchCommentTree = async (
   return comments
 }
 
+// Fetch the context of a comment (the ID and title of the story it is replying to)
 export const fetchCommentContext = async (
   comment: CommentItem,
 ): Promise<{ contextId: number; contextTitle: string }> => {
