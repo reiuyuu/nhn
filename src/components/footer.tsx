@@ -22,6 +22,11 @@ export default function Footer() {
           className='rounded-sm border border-[#828282] px-0.5 py-px font-mono leading-tight text-black sm:w-[90%] sm:text-base'
         />
       </form>
+
+      <div>
+        yet another Hacker News client &middot;{' '}
+        <a href='https://github.com/reiuyuu/nhn/'>github.com/reiuyuu/nhn</a>
+      </div>
     </footer>
   )
 }
