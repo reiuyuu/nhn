@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.0.0",
     "firebase": "^9.20.0",
     "ms": "^2.1.3",
     "next": "13.2.4",
