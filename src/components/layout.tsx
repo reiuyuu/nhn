@@ -21,7 +21,7 @@ export default function Layout({
     <>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <meta name='description' content='Next Hacker News' />
+        <meta name='description' content='yet another Hacker News client' />
         <link rel='shortcut icon' href='/favicon.ico' />
         <title>{fullTitle}</title>
       </Head>
